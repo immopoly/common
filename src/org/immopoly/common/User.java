@@ -13,8 +13,12 @@ public abstract class User implements JSONable {
 	public abstract String getUserName();
 	public abstract double getBalance();
 	public abstract String getToken();
-
+	public abstract String getEmail();
+	public abstract String getTwitter();
+	
 	public abstract void setUsername(String username);
+	public abstract void setEmail(String email);
+	public abstract void setTwitter(String twitter);
 	// public abstract void setPassword(String password) ;
 	public abstract void setBalance(double balance);
 
@@ -34,6 +38,8 @@ public abstract class User implements JSONable {
 			JSONObject user = o.getJSONObject("org.immopoly.common.User");
 			setUsername(user.getString("username"));
 			setToken(user.getString("token"));
+			setEmail(user.optString("email"));
+			setTwitter(user.optString("twitter"));
 			JSONObject info = user.getJSONObject("info");
 			setPortfolio(info.getJSONObject("resultlist.resultlist"));
 			setBalance(info.getDouble("balance"));
