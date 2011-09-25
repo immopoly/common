@@ -30,23 +30,37 @@ public abstract class User implements JSONable {
 
 	public abstract History instantiateHistory();
 	
+	public static final String sId = "_id";
+	public static final String sUsername = "username";
+	public static final String sToken = "token";
+	public static final String sEmail = "email";
+	public static final String sTwitter = "twitter";
+	public static final String sInfo = "info";
+	public static final String sBalance = "balance";
+	public static final String sLastRent = "lastRent";
+	public static final String sLastProvision = "lastProvision";
+	
+	public static final String sUserObject = "org.immopoly.common.User";
+	public static final String sHostoryList = "historyList";
+	public static final String sResultlist = "resultlist.resultlist";
+	
 	public abstract void setLastRent(double lastRent);
 	public abstract void setLastProvision(double lastProvision);
 	@Override
 	public void fromJSON(JSONObject o) {
 		try {
-			JSONObject user = o.getJSONObject("org.immopoly.common.User");
-			setUsername(user.getString("username"));
-			setToken(user.getString("token"));
-			setEmail(user.optString("email"));
-			setTwitter(user.optString("twitter"));
-			JSONObject info = user.getJSONObject("info");
-			setPortfolio(info.getJSONObject("resultlist.resultlist"));
-			setBalance(info.getDouble("balance"));
-			setLastRent(info.getDouble("lastRent"));
-			setLastProvision(info.getDouble("lastProvision"));
+			JSONObject user = o.getJSONObject(sUserObject);
+			setUsername(user.getString(sUsername));
+			setToken(user.getString(sToken));
+			setEmail(user.optString(sEmail));
+			setTwitter(user.optString(sTwitter));
+			JSONObject info = user.getJSONObject(sInfo);
+			setPortfolio(info.getJSONObject(sResultlist));
+			setBalance(info.getDouble(sBalance));
+			setLastRent(info.getDouble(sLastRent));
+			setLastProvision(info.getDouble(sLastProvision));
 			List<History> history	=	new ArrayList<History>();
-			JSONArray historyList= info.getJSONArray("historyList");
+			JSONArray historyList= info.getJSONArray(sHostoryList);
 			for (int i = 0; i < historyList.length(); i++) {
 				History h= instantiateHistory();
 				h.fromJSON(historyList.getJSONObject(i));
