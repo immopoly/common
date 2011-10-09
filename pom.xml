@@ -9,6 +9,14 @@
 	<name>immopoly-common</name>
 	<description>Immopoly: common - shared codebase for all java-based projects</description>
 	<url>http://immopoly.appspot.com</url>
+	<licenses>
+		<license>
+			<name>GNU AFFERO GENERAL PUBLIC LICENSE Version 3.0</name>
+			<url>http://www.gnu.org/licenses/agpl-3.0.txt</url>
+			<distribution>manual</distribution>
+			<comments>This is a free software, copyleft license. Its terms effectively consist of the terms of GPLv3, with an additional paragraph in section 13 to allow users who interact with the licensed software over a network to receive the source for that program.</comments>
+		</license>
+	</licenses>
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>https://github.com/immopoly/immopoly/issues</url>
@@ -59,6 +67,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<immopoly.publish.dir>${basedir}/../dist</immopoly.publish.dir>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -69,6 +78,8 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<defaultGoal>package</defaultGoal>
+		<finalName>${project.groupId}.${artifactId}-${version}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
