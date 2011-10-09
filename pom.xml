@@ -31,9 +31,9 @@
 		</mailingList>
 	</mailingLists>
 	<scm>
-		<connection>scm:git:https://github.com/immopoly/common</connection>
+		<connection>scm:git:https://github.com/immopoly/common.git</connection>
 		<developerConnection>scm:git:ssh://github.com/immopoly/common.git</developerConnection>
-		<url>http://somerepository.com/view.cvs</url>
+		<url>https://github.com/immopoly/common</url>
 	</scm>
 	<inceptionYear>2011</inceptionYear>
 	<organization>
