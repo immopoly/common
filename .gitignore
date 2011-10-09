@@ -1,4 +1,4 @@
-bin/
+# compiled versions
 target/
 
 # eclipse stuff
