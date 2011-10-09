@@ -21,6 +21,15 @@
 		<system>GitHub Issues</system>
 		<url>https://github.com/immopoly/immopoly/issues</url>
 	</issueManagement>
+	<mailingLists>
+		<mailingList>
+			<name>Immopoly developers</name>
+			<subscribe>immopoly-devs+subscribe@googlegroups.com</subscribe>
+			<unsubscribe>immopoly-devs+unsubscribe@googlegroups.com</unsubscribe>
+			<post>immopoly-devs@googlegroups.com</post>
+			<archive>https://groups.google.com/forum/#!forum/immopoly-devs</archive>
+		</mailingList>
+	</mailingLists>
 	<inceptionYear>2011</inceptionYear>
 	<organization>
 		<name>Team immopoly</name>
