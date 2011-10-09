@@ -6,6 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public abstract class History implements JSONable {
+	
+	public static String DINGE = "";
 	public static DecimalFormat MONEYFORMAT = new DecimalFormat("0.00 Eur");
 	public static final int TYPE_EXPOSE_ADDED=1;
 	public static final int TYPE_EXPOSE_SOLD=2;
