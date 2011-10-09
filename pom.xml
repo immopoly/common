@@ -90,6 +90,11 @@
 			<version>4.4</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20111006</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<defaultGoal>package</defaultGoal>
@@ -103,7 +108,9 @@
 					<projectNameTemplate>immopoly-${project.artifactId}</projectNameTemplate>
 					<classpathContainers>
 						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<!-- causes double inclusion -> should be included into m2eclipse-plugin 
 						<classpathContainer>org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER</classpathContainer>
+						-->
 					</classpathContainers>
 					<buildcommands>
 						<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
@@ -151,4 +158,34 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>immopoly-snapshots</id>
+			<url>https://raw.github.com/immopoly/mavenrepo/master/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>immopoly-releases</id>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<url>https://raw.github.com/immopoly/mavenrepo/master/releases</url>
+		</repository>
+	</repositories>
 </project>
