@@ -78,7 +78,6 @@
 			<timezone>+2</timezone>
 		</developer>
 	</developers>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<immopoly.publish.dir>${basedir}/../dist</immopoly.publish.dir>
@@ -161,6 +160,25 @@
 			</plugin>
 		</plugins>
 	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-docck-plugin</artifactId>
+				<version>1.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
 	<repositories>
 		<repository>
 			<id>immopoly-snapshots</id>
