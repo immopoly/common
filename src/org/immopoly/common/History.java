@@ -14,6 +14,8 @@ public abstract class History implements JSONable {
 	//history2
 	public static final int TYPE_DAILY_PROVISION=5;
 	public static final int TYPE_DAILY_RENT=6;
+	// new
+	public static final int TYPE_EXPOSE_REMOVED = 7;
 
 	
 	public abstract void setTime(long time);
@@ -21,6 +23,9 @@ public abstract class History implements JSONable {
 	public abstract void setType(int type);
 	public abstract void setType2(int type2);
 	public abstract void setAmount(double amount);
+
+	public abstract void setExposeId(Long exposeId);
+
 	@Override
 	public void fromJSON(JSONObject o) {
 		try {
@@ -32,6 +37,8 @@ public abstract class History implements JSONable {
 				setType2(h.getInt("type2"));
 			if(h.has("amount"))
 				setAmount(h.getDouble("amount"));
+			if (h.has("exposeId"))
+				setAmount(h.getLong("exposeId"));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
