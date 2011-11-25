@@ -16,6 +16,66 @@ public class ImmopolyException extends Exception implements JSONable
 	 */
 	private static final long serialVersionUID = 107444085836140773L;
 
+	public static final int MISSING_PARAMETER_USERNAME = 43;
+
+	public static final int MISSING_PARAMETER_PASSWORD = 44;
+
+	public static final int MISSING_PARAMETER_START_END = 93;
+	
+	public static final int REGISTER_USERNAME_ALREADY_TAKEN = 45;
+
+	public static final int REGISTER_FAILED = 101;
+
+	public static final int MISSING_PARAMETER_TOKEN = 61;
+
+	public static final int TOKEN_NOT_FOUND = 62;
+
+	public static final int USERNAME_NOT_FOUND = 63;
+	
+	public static final int EXPOSE_ALREADY_IN_PORTFOLIO = 201;
+
+	public static final int EXPOSE_NOT_OWNED = 202;
+	
+	public static final int EXPOSE_NOT_FOUND = 301;
+
+	public static final int EXPOSE_NO_RENT = 302;
+
+	public static final int EXPOSE_ADD_FAILED = 101;
+
+	public static final int EXPOSE_REMOVE_FAILED = 303;
+	
+	public static final int EXPOSE_NO_COURTAGE = 304;
+
+	public static final int C2DM_ID_NOT_FOUND = 81;
+
+	public static final int C2DM_FAILED = 83;
+
+	public static final int USER_INFO_FAILED = 101;
+
+	public static final int NO_MORE_DATA = 94;
+
+	public static final int TOPX_FAILED = 95;
+
+	public static final int MISSING_PARAMETER_C2DM_ID =69;
+
+	public static final int C2DM_REGISTER_FAILED = 108;
+
+	public static final int HISTORY_FAILED = 101;
+
+	public static final int USER_LOGIN_FAILED = 101;
+
+	public static final int USER_DOES_NOT_MATCH_TOKEN = 52;
+
+	public static final int USER_PASSWORD_CHANGE_FAILED = 108;
+
+	public static final int MISSING_PARAMETER_EMAIL = 45;
+
+	public static final int USER_SEND_PASSWORDMAIL_FAILED = 109;
+
+
+
+
+
 	static Logger LOG = Logger.getLogger(ImmopolyException.class.getName());
 
 	private String					name								= null;
@@ -30,7 +90,7 @@ public class ImmopolyException extends Exception implements JSONable
 	}
 
 
-	protected ImmopolyException(String message)
+	private ImmopolyException(String message)
 	{
 		super();
 		this.message = message;
@@ -38,18 +98,11 @@ public class ImmopolyException extends Exception implements JSONable
 	}
 
 
-	public ImmopolyException(String message, int ec)
+	public ImmopolyException(int errorCode, String message)
 	{
 		this(message);
-		this.errorCode = ec;
+		this.errorCode = errorCode;
 	}
-
-
-	public ImmopolyException(String message, int errorCode, boolean showInLog)
-	{
-		this(message, errorCode);
-	}
-
 
 	public ImmopolyException(Exception t)
 	{
@@ -60,9 +113,9 @@ public class ImmopolyException extends Exception implements JSONable
 	}
 
 
-	public ImmopolyException(String message, int ec, Exception c)
+	public ImmopolyException(int errorCode, String message, Exception c)
 	{
-		this(message, ec);
+		this(errorCode, message);
 		if (null != c)
 			cause = c;
 	}
