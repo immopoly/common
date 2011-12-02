@@ -23,7 +23,6 @@ public abstract class History implements JSONable {
 	public abstract void setType(int type);
 	public abstract void setType2(int type2);
 	public abstract void setAmount(double amount);
-
 	public abstract void setExposeId(Long exposeId);
 
 	@Override
@@ -38,7 +37,8 @@ public abstract class History implements JSONable {
 			if(h.has("amount"))
 				setAmount(h.getDouble("amount"));
 			if (h.has("exposeId"))
-				setAmount(h.getLong("exposeId"));
+				setExposeId(h.getLong("exposeId"));			
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
