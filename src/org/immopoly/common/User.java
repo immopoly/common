@@ -3,7 +3,6 @@ package org.immopoly.common;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,8 +26,7 @@ public abstract class User implements JSONable , IUser{
 			List<History> history	=	new ArrayList<History>();
 			JSONArray historyList= info.getJSONArray(KEY_HISTORY_LIST);
 			for (int i = 0; i < historyList.length(); i++) {
-				History h= instantiateHistory();
-				h.fromJSON(historyList.getJSONObject(i));
+				History h = instantiateHistory(historyList.getJSONObject(i));
 				history.add(h);
 			}
 			setHistory(history);

@@ -44,7 +44,7 @@ public interface IUser {
 
 	public void setHistory(List<History> history);
 
-	public History instantiateHistory();
+	public History instantiateHistory(JSONObject jsonObject);
 
 	public void setLastRent(double lastRent);
 

@@ -73,15 +73,12 @@ public class ImmopolyException extends Exception implements JSONable
 	public static final int USER_SEND_PASSWORDMAIL_FAILED = 109;
 
 
-
-
-
 	static Logger LOG = Logger.getLogger(ImmopolyException.class.getName());
 
-	private String					name								= null;
-	private String					message								= null;
-	private int						errorCode							= 1;
-	private Exception				cause									= null;
+	protected String name = null;
+	protected String message = null;
+	protected int errorCode = 1;
+	protected Exception cause = null;
 
 
 	public ImmopolyException()
