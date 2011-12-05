@@ -40,7 +40,7 @@ public abstract class History implements JSONable {
 	@Override
 	public void fromJSON(JSONObject o) {
 		try {
-			JSONObject h = o.getJSONObject("org.immopoly.common.History");
+			JSONObject h = o.getJSONObject(getJSONObjectKey());
 			setTime(h.getLong("time"));
 			setText(h.getString("text"));
 			setType(h.getInt("type"));
@@ -54,5 +54,9 @@ public abstract class History implements JSONable {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+	}
+
+	protected String getJSONObjectKey() {
+		return "org.immopoly.common.History";
 	}
 }
