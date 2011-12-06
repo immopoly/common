@@ -4,7 +4,6 @@ package org.immopoly.common;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -188,10 +187,10 @@ public class ImmopolyException extends Exception implements JSONable
 	{
 		try
 		{
-			String[] name = JSONObject.getNames(jsonObject);
-			JSONArray properties = jsonObject.getJSONArray(name[0]);
-			this.message = properties.getString(0);
-			this.errorCode = properties.getInt(1);
+			JSONObject properties = jsonObject.getJSONObject("org.immopoly.common.ImmopolyException");
+			this.message = properties.getString("message");
+			this.errorCode = properties.getInt("errorCode");
+			// TODO schtief
 //			if (properties.length() == 3)
 //			{
 //				this.cause = instantiateException(properties.getJSONObject(3));

@@ -26,9 +26,6 @@ SOFTWARE.
 
 import java.io.IOException;
 import java.io.Writer;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -267,10 +264,10 @@ public class JSONObject {
      * @param bean An object that has getter methods that should be used
      * to make a JSONObject.
      */
-    public JSONObject(Object bean) {
-        this();
-        populateMap(bean);
-    }
+	// public JSONObject(Object bean) {
+	// this();
+	// populateMap(bean);
+	// }
 
 
     /**
@@ -606,22 +603,22 @@ public class JSONObject {
      *
      * @return An array of field names, or null if there are no names.
      */
-    public static String[] getNames(Object object) {
-        if (object == null) {
-            return null;
-        }
-        Class klass = object.getClass();
-        Field[] fields = klass.getFields();
-        int length = fields.length;
-        if (length == 0) {
-            return null;
-        }
-        String[] names = new String[length];
-        for (int i = 0; i < length; i += 1) {
-            names[i] = fields[i].getName();
-        }
-        return names;
-    }
+	// public static String[] getNames(Object object) {
+	// if (object == null) {
+	// return null;
+	// }
+	// Class klass = object.getClass();
+	// Field[] fields = klass.getFields();
+	// int length = fields.length;
+	// if (length == 0) {
+	// return null;
+	// }
+	// String[] names = new String[length];
+	// for (int i = 0; i < length; i += 1) {
+	// names[i] = fields[i].getName();
+	// }
+	// return names;
+	// }
 
 
     /**
@@ -950,51 +947,51 @@ public class JSONObject {
     }
 
 
-    private void populateMap(Object bean) {
-        Class klass = bean.getClass();
-
-// If klass is a System class then set includeSuperClass to false. 
-
-        boolean includeSuperClass = klass.getClassLoader() != null;
-
-        Method[] methods = (includeSuperClass) ?
-                klass.getMethods() : klass.getDeclaredMethods();
-        for (int i = 0; i < methods.length; i += 1) {
-            try {
-                Method method = methods[i];
-                if (Modifier.isPublic(method.getModifiers())) {
-                    String name = method.getName();
-                    String key = "";
-                    if (name.startsWith("get")) {
-                        if (name.equals("getClass") || 
-                                name.equals("getDeclaringClass")) {
-                            key = "";
-                        } else {
-                            key = name.substring(3);
-                        }
-                    } else if (name.startsWith("is")) {
-                        key = name.substring(2);
-                    }
-                    if (key.length() > 0 &&
-                            Character.isUpperCase(key.charAt(0)) &&
-                            method.getParameterTypes().length == 0) {
-                        if (key.length() == 1) {
-                            key = key.toLowerCase();
-                        } else if (!Character.isUpperCase(key.charAt(1))) {
-                            key = key.substring(0, 1).toLowerCase() +
-                                key.substring(1);
-                        }
-
-                        Object result = method.invoke(bean, (Object[])null);
-                        if (result != null) {
-                            map.put(key, wrap(result));
-                        }
-                    }
-                }
-            } catch (Exception ignore) {
-            }
-        }
-    }
+// private void populateMap(Object bean) {
+	// Class klass = bean.getClass();
+	//
+	// // If klass is a System class then set includeSuperClass to false.
+	//
+	// boolean includeSuperClass = klass.getClassLoader() != null;
+	//
+	// Method[] methods = (includeSuperClass) ?
+	// klass.getMethods() : klass.getDeclaredMethods();
+	// for (int i = 0; i < methods.length; i += 1) {
+	// try {
+	// Method method = methods[i];
+	// if (Modifier.isPublic(method.getModifiers())) {
+	// String name = method.getName();
+	// String key = "";
+	// if (name.startsWith("get")) {
+	// if (name.equals("getClass") ||
+	// name.equals("getDeclaringClass")) {
+	// key = "";
+	// } else {
+	// key = name.substring(3);
+	// }
+	// } else if (name.startsWith("is")) {
+	// key = name.substring(2);
+	// }
+	// if (key.length() > 0 &&
+	// Character.isUpperCase(key.charAt(0)) &&
+	// method.getParameterTypes().length == 0) {
+	// if (key.length() == 1) {
+	// key = key.toLowerCase();
+	// } else if (!Character.isUpperCase(key.charAt(1))) {
+	// key = key.substring(0, 1).toLowerCase() +
+	// key.substring(1);
+	// }
+	//
+	// Object result = method.invoke(bean, (Object[])null);
+	// if (result != null) {
+	// map.put(key, wrap(result));
+	// }
+	// }
+	// }
+	// } catch (Exception ignore) {
+	// }
+	// }
+	// }
 
 
     /**
@@ -1584,7 +1581,8 @@ public class JSONObject {
              ) {
                  return object.toString();
              }
-             return new JSONObject(object);
+			throw new RuntimeException("no reflection fucker!");
+			// return new JSONObject(object);
          } catch(Exception exception) {
              return null;
          }
