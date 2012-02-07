@@ -252,4 +252,9 @@ public class ImmopolyException extends Exception implements JSONable
 	{
 		return name;
 	}
+
+
+	public Level getLogLevel() {
+		return Level.SEVERE;
+	}
 }

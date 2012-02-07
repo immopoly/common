@@ -12,6 +12,7 @@ public interface IUser {
 	public static final String KEY_TWITTER = "twitter";
 	public static final String KEY_INFO = "info";
 	public static final String KEY_BALANCE = "balance";
+	public static final String KEY_MONTH_BALANCE = "balanceMonth";
 	public static final String KEY_LAST_RENT = "lastRent";
 	public static final String KEY_LAST_PROVISION = "lastProvision";
 
