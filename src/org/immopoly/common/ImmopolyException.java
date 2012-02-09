@@ -73,6 +73,8 @@ public class ImmopolyException extends Exception implements JSONable
 
 	public static final int EXPOSE_MAX_NUM = 305;
 
+	public static final int EXPOSE_HEATMAP_FAILED = 1001;
+
 	static Logger LOG = Logger.getLogger(ImmopolyException.class.getName());
 
 	protected String name = null;
