@@ -1,17 +1,16 @@
 package org.immopoly.common;
 
-import java.text.DecimalFormat;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public abstract class History implements JSONable {
-	public static DecimalFormat MONEYFORMAT = new DecimalFormat("0.00 Eur");
+
 	public static final int TYPE_EXPOSE_ADDED=1;
 	public static final int TYPE_EXPOSE_SOLD=2;
 
 	public static final int TYPE_EXPOSE_MONOPOLY_POSITIVE=3;
 	public static final int TYPE_EXPOSE_MONOPOLY_NEGATIVE=4;
+
 	//history2
 	public static final int TYPE_DAILY_PROVISION=5;
 	public static final int TYPE_DAILY_RENT=6;
