@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.immopoly</groupId>
     <artifactId>common</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>immopoly-common</name>
 	<description>Immopoly: Android client</description>
@@ -12,12 +12,24 @@
 		<system>GitHub Issues</system>
 		<url>https://github.com/immopoly/immopoly/issues</url>
 	</issueManagement>
-	<inceptionYear>2011</inceptionYear>
+	<inceptionYear>2012</inceptionYear>
 	<organization>
 		<name>Team immopoly</name>
 		<url>http://immopoly.blogspot.com</url>
 	</organization>
 	<developers>
+		<developer>
+			<id>mrschtief</id>
+			<name>Mister Schtief</name>
+			<email>lischke@gmail.-com</email>
+			<url>http://schtief.org</url>
+			<organization>Team immopoly</organization>
+			<organizationUrl>http://immopoly.blogspot.com</organizationUrl>
+			<roles>
+			<role>owner</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
 		<developer>
 			<id>keyboardsurfer</id>
 			<name>Benjamin Weiss</name>
@@ -42,7 +54,7 @@
 			</roles>
 			<timezone>+2</timezone>
 		</developer>
-    <developer>
+		<developer>
 			<id>t</id>
 			<name>Yan Minagawa</name>
 			<email>t@c-base.org</email>
