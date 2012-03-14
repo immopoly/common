@@ -259,8 +259,11 @@ public class ImmopolyException extends Exception implements JSONable
 	}
 
 	public Level getLogLevel() {
-		if (errorCode == TOKEN_NOT_FOUND)
-			return Level.WARNING;
-		return Level.SEVERE;
+		if (errorCode == EXPOSE_ADD_FAILED || errorCode == EXPOSE_ADD_FAILED || errorCode == EXPOSE_HEATMAP_FAILED
+				|| errorCode == EXPOSE_REMOVE_FAILED || errorCode == HISTORY_FAILED || errorCode == REGISTER_FAILED
+				|| errorCode == TOPX_FAILED || errorCode == USER_INFO_FAILED || errorCode == USER_LOGIN_FAILED
+				|| errorCode == USER_SEND_PASSWORDMAIL_FAILED || errorCode == USER_PASSWORD_CHANGE_FAILED)
+			return Level.SEVERE;
+		return Level.WARNING;
 	}
 }
