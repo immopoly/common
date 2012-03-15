@@ -20,6 +20,8 @@ public class ImmopolyException extends Exception implements JSONable
 	public static final int MISSING_PARAMETER_PASSWORD = 44;
 
 	public static final int MISSING_PARAMETER_START_END = 93;
+
+	public static final int PARAMETER_START_END_TO_WIDE = 94;
 	
 	public static final int REGISTER_USERNAME_ALREADY_TAKEN = 45;
 
@@ -261,7 +263,7 @@ public class ImmopolyException extends Exception implements JSONable
 	public Level getLogLevel() {
 		if (errorCode == EXPOSE_ADD_FAILED || errorCode == EXPOSE_ADD_FAILED || errorCode == EXPOSE_HEATMAP_FAILED
 				|| errorCode == EXPOSE_REMOVE_FAILED || errorCode == HISTORY_FAILED || errorCode == REGISTER_FAILED
-				|| errorCode == TOPX_FAILED || errorCode == USER_INFO_FAILED || errorCode == USER_LOGIN_FAILED
+				|| errorCode == TOPX_FAILED || errorCode == USER_INFO_FAILED
 				|| errorCode == USER_SEND_PASSWORDMAIL_FAILED || errorCode == USER_PASSWORD_CHANGE_FAILED)
 			return Level.SEVERE;
 		return Level.WARNING;
