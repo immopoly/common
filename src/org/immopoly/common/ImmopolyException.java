@@ -80,6 +80,8 @@ public class ImmopolyException extends Exception implements JSONable
 	public static final int USER_SEND_PASSWORDMAIL_NOEMAIL = 450;
 	public static final int USER_SEND_PASSWORDMAIL_EMAIL_NOMATCH = 451;
 
+	public static final int ACTIONITEM_NOTFOUND = 2001;
+
 	static Logger LOG = Logger.getLogger(ImmopolyException.class.getName());
 
 	protected String name = null;
