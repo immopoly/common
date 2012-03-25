@@ -3,13 +3,13 @@ package org.immopoly.common;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public abstract class ActionItem extends History implements JSONable {
+public abstract class ActionItem implements JSONable {
 
 	protected ActionItem() {
 	}
 
 	public ActionItem(JSONObject o) {
-		super(o);
+		fromJSON(o);
 	}
 
 	public static final int TYPE_ACTION_FREEEXPOSES = 1;
