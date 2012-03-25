@@ -24,6 +24,7 @@ public interface IUser {
 	public static final String KEY_RESULT_LIST = "resultlist.resultlist";
 
 	public static final String KEY_BADGES_LIST = "bagdesList";
+	public static final String KEY_ACTIONITEM_LIST = "actionItemList";
 
 	public String getUserName();
 
