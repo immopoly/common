@@ -61,6 +61,10 @@ public interface IUser {
 
 	public Badge instantiateBadge(JSONObject jsonObject);
 
+	public ActionItem instantiateActionItem(JSONObject jsonObject);
+
+	public void setActionItems(List<ActionItem> actionItems);
+
 	public void setNumExposes(int numExposes);
 
 	public void setMaxExposes(int maxExposes);

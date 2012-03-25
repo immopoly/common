@@ -46,6 +46,14 @@ public abstract class User implements JSONable , IUser{
 			}
 			setBadges(badges);
 
+			List<ActionItem> actionItems = new ArrayList<ActionItem>();
+			JSONArray actionItemList = info.getJSONArray(KEY_ACTIONITEM_LIST);
+			for (int i = 0; i < actionItemList.length(); i++) {
+				ActionItem a = instantiateActionItem(actionItemList.getJSONObject(i));
+				actionItems.add(a);
+			}
+			setActionItems(actionItems);
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
