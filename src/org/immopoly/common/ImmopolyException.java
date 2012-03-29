@@ -195,11 +195,16 @@ public class ImmopolyException extends Exception implements JSONable
 	@Override
 	public void fromJSON(JSONObject jsonObject)
 	{
+		if(null==jsonObject)
+			return;
 		try
 		{
 			JSONObject properties = jsonObject.getJSONObject("org.immopoly.common.ImmopolyException");
-			this.message = properties.getString("message");
-			this.errorCode = properties.getInt("errorCode");
+			if(null!=properties)
+			{
+				this.message = properties.getString("message");
+				this.errorCode = properties.getInt("errorCode");
+			}
 			// TODO schtief
 //			if (properties.length() == 3)
 //			{
