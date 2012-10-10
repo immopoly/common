@@ -28,6 +28,7 @@ public abstract class History implements JSONable {
 	// optional
 	public abstract void setAmount(double amount);
 	public abstract void setExposeId(long exposeId);
+	public abstract void setOtherUserName(String userName);
 
 	protected History() {
 	}
@@ -48,7 +49,9 @@ public abstract class History implements JSONable {
 			if(h.has("amount"))
 				setAmount(h.getDouble("amount"));
 			if (h.has("exposeId"))
-				setExposeId(h.getLong("exposeId"));			
+				setExposeId(h.getLong("exposeId"));
+			
+			setOtherUserName(h.optString("otherUsername"));
 
 		} catch (JSONException e) {
 			e.printStackTrace();
