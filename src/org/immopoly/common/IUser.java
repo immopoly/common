@@ -23,5 +23,7 @@ public interface IUser extends ISimpleUser{
 	public ActionItem instantiateActionItem(JSONObject jsonObject);
 
 	public void setActionItems(List<ActionItem> actionItems);
+	
+	public void addHistoryEntries(List<History> historyEntries);
 
 }

@@ -16,13 +16,7 @@ public abstract class User extends SimpleUser implements JSONable , IUser{
 			setToken(user.getString(KEY_TOKEN));
 			setPortfolio(info.getJSONObject(KEY_RESULT_LIST));
 			
-			List<History> history	=	new ArrayList<History>();
-			JSONArray historyList= info.getJSONArray(KEY_HISTORY_LIST);
-			for (int i = 0; i < historyList.length(); i++) {
-				History h = instantiateHistory(historyList.getJSONObject(i));
-				history.add(h);
-			}
-			setHistory(history);
+			setHistory(getHistoryEntries(info.getJSONArray(KEY_HISTORY_LIST)));
 
 			List<ActionItem> actionItems = new ArrayList<ActionItem>();
 			JSONArray actionItemList = info.getJSONArray(KEY_ACTIONITEM_LIST);
@@ -36,4 +30,21 @@ public abstract class User extends SimpleUser implements JSONable , IUser{
 			e.printStackTrace();
 		}
 	}
+	
+	public void appendHistoryEntries(JSONArray array) throws JSONException{
+		addHistoryEntries(getHistoryEntries(array));
+	}
+	
+	private List<History> getHistoryEntries(JSONArray historyList) throws JSONException{
+		
+		List<History> history	=	new ArrayList<History>();
+		
+		for (int i = 0; i < historyList.length(); i++) {
+			History h = instantiateHistory(historyList.getJSONObject(i));
+			history.add(h);
+		}
+		
+		return history;
+	}
+	
 }
